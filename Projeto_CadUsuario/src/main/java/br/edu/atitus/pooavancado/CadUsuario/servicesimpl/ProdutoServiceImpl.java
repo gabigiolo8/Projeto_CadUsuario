@@ -23,7 +23,7 @@ public class ProdutoServiceImpl implements ProdutoService{
 	@Override
 	@Transactional
 	public void alteraStatus(long id) throws Exception {
-		if (!produtoRepository.existsById(id))
+		if (produtoRepository.existsById(id))
 			throw new Exception("Não existe produto com o Id: " + id);
 		produtoRepository.alteraStatus(id);
 	}
